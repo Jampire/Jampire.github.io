@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="canonical" href="https://dzianiskotau.com/projects/moonshine-impersonate/v1/docs/ru">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="author" content="Dzianis Kotau" />
+        <meta name="description" content="MoonShine Impersonate Documentation">
+        
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="MoonShine Impersonate" />
+        <meta itemprop="description" content="MoonShine Impersonate предоставляет возможность подмены пользователя в проектах на Laravel с использованием админ-панели MoonShine." />
+                    <meta itemprop="image" content="https://dzianiskotau.com/assets/images/moonshine-impersonate/impersonate.jpg" />
+        
+        <!-- Facebook Meta Tags -->
+        <meta property="og:site_name" content="Dzianis Kotau Tech Blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="MoonShine Impersonate" />
+        <meta property="og:description" content="MoonShine Impersonate предоставляет возможность подмены пользователя в проектах на Laravel с использованием админ-панели MoonShine." />
+        <meta property="og:url" content="https://dzianiskotau.com/projects/moonshine-impersonate/v1/docs/ru" />
+        <meta property="og:locale" content="en_US" />
+                    <meta property="og:image" content="https://dzianiskotau.com/assets/images/moonshine-impersonate/impersonate.jpg" />
+                        
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MoonShine Impersonate" />
+        <meta name="twitter:description" content="MoonShine Impersonate предоставляет возможность подмены пользователя в проектах на Laravel с использованием админ-панели MoonShine." />
+        <meta name="twitter:site" content="@Jampire2" />
+        <meta name="twitter:creator" content="@Jampire2" />
+        <meta name="twitter:url" content="https://dzianiskotau.com/projects/moonshine-impersonate/v1/docs/ru" />
+                    <meta name="twitter:image" content="https://dzianiskotau.com/assets/images/moonshine-impersonate/impersonate.jpg" />
+        
+        <title>MoonShine Impersonate | Dzianis Kotau Tech Blog</title>
+
+        <link rel="home" href="https://dzianiskotau.com">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Dzianis Kotau Tech Blog Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0a9d6a994146e5563b6d7641d1ab9b58">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Dzianis Kotau Tech Blog" class="inline-flex items-center">
+                        <h1 class="text-lg md:text-2xl text-blue-800 font-semibold hover:text-blue-600 my-0">Dzianis Kotau Tech Blog</h1>
+                    </a>
+                </div>
+
+                <div id="vue-search" class="flex flex-1 justify-end items-center">
+                    <search></search>
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Dzianis Kotau Tech Blog Blog" href="/blog"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        Blog
+    </a>
+
+    <a title="My Portfolio" href="/portfolio"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        My Portfolio
+    </a>
+
+    <a title="MoonShine Impersonate" href="/projects/moonshine-impersonate/v2/docs/ru"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        MoonShine Impersonate
+    </a>
+
+    <a title="Dzianis Kotau Tech Blog About" href="/about"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        About
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue-500 border border-blue-500 h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="w-auto px-2 pt-6 pb-2 bg-gray-200 shadow hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Dzianis Kotau Tech Blog Blog"
+                href="/blog"
+                class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >Blog</a>
+        </li>
+        <li class="pl-4">
+            <a
+                    title="My Portfolio"
+                    href="/portfolio"
+                    class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >My Portfolio</a>
+        </li>
+        <li class="pl-4">
+            <a
+                    title="MoonShine Impersonate"
+                    href="/projects/moonshine-impersonate/v2/docs/ru"
+                    class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >MoonShine Impersonate</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Dzianis Kotau Tech Blog About"
+                href="/about"
+                class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >About</a>
+        </li>
+    </ul>
+</nav>
+
+                    <main
+                    role="main"
+                    class="flex-auto w-full container max-w-7xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-6"
+            >
+                <div class="md:col-span-1 lg:col-span-2 md:order-last lg:order-last"><div class="flex justify-center grid grid-cols-1 gap-y-4">
+    <div class="rounded-lg shadow-lg bg-white max-w-xs">
+        <a href="#!">
+            <img class="rounded-t-lg" src="/assets/images/about/me.jpg" alt="Dzianis Kotau"/>
+        </a>
+        <div class="pl-4 pt-6 pr-4">
+            <h5 class="text-gray-900 text-xl font-bold mb-2">About Me</h5>
+            <p class="text-gray-700 text-base mb-4">
+                Мy name is <span class="font-semibold">Dzianis Kotau</span>. I'm Solutions Architect and
+                <a href="https://www.zend-zce.com/en/yellow-pages/ZEND017455" target="_blank" rel="external">Zend Certified PHP Engineer</a>.
+                I'm PHP evangelist and loved in it.
+            </p>
+        </div>
+    </div>
+
+    <div class="block rounded-lg shadow-lg bg-white max-w-xs">
+        <p class="text-gray-700 text-base mb-4 text-center">
+            <a href="https://github.com/Jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-github" aria-label="GitHub"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-linkedin" aria-label="LinkedIn"></i>
+    </a>
+    <a href="https://www.facebook.com/dzianis.kotau.1984" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-facebook" aria-label="Facebook"></i>
+    </a>
+    <a href="https://t.me/JampireBlr" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-telegram" aria-label="Telegram"></i>
+    </a>
+    <a href="https://twitter.com/Jampire2" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-twitter" aria-label="Twitter"></i>
+    </a>
+    <a href="mailto:me@dzianiskotau.com?subject=Blog-Feedback" target="_top" rel="external"
+       class=" text-2xl md:text-base">
+        <i class="fa-solid fa-envelope" aria-label="Mail Me"></i>
+    </a>
+        </p>
+    </div>
+</div>
+</div>
+                <div class="md:col-span-2 lg:col-span-5"><h1 id="moonshine-impersonate">MoonShine Impersonate</h1>
+
+<p><a href="/projects/moonshine-impersonate/v2/docs/ru">Документация версии 2.x</a></p>
+
+<p><a href="https://github.com/Jampire/moonshine-impersonate" title="MoonShine Impersonate" target="_blank">MoonShine Impersonate</a> предоставляет возможность подмены пользователя в проектах на <a href="https://laravel.com/" title="Laravel Framework" target="_blank">Laravel</a> с 
+использованием админ-панели <a href="https://moonshine.cutcode.dev/" title="MoonShine" target="_blank">MoonShine</a>. Функциональность подмены пользователя позволяет админстратору войти на сайт 
+как реальный пользователь. Это может быть полезно, чтобы посмотреть, как сайт виден обычному пользователю, 
+воспроизвести баги от его имени и т.д.</p>
+
+<h2 id="%D0%A1%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5">Содержимое</h2>
+
+<ul>
+<li><a href="#installation">Установка</a></li>
+<li><a href="#configuration">Настройка</a></li>
+<li><a href="#usage">Использование</a>
+
+<ul>
+<li><a href="#usage_basic">Базовое использование</a></li>
+<li><a href="#usage_middleware">Middleware</a></li>
+<li><a href="#usage_permissions">Разрешения</a></li>
+<li><a href="#usage_logs">Запись событий (логирование)</a></li>
+<li><a href="#usage_events">События</a></li>
+</ul></li>
+<li><a href="#links">Ссылки</a></li>
+<li><a href="#additional_resources">Дополнительные ресурсы</a></li>
+</ul>
+
+<h2 id="installation">Установка</h2>
+
+<p><code>MoonShine Impersonate</code> спроектирован для использования в составе админ-панели <strong>MoonShine</strong>. Поэтому, сперва установите 
+админ-панель, следуя <a href="https://moonshine.cutcode.dev/section/installation" title="Documentation" target="_blank">инструкциям</a> с официального сайте <strong>MoonShine</strong>. Затем установите данный пакет при помощи 
+команды:</p>
+
+<pre><code class="language-shell">composer require jampire/moonshine-impersonate
+</code></pre>
+
+<h2 id="configuration">Настройка</h2>
+
+<p><code>MoonShine Impersonate</code> способен работать из коробки с настройками по умолчанию. Но вы можете опубликовать его 
+настройки в свою директорию <code>config</code> и изменть нужные пареметры (зачастую в файле <code>.env</code>):</p>
+
+<pre><code class="language-shell">php artisan vendor:publish --provider="Jampire\MoonshineImpersonate\ImpersonateServiceProvider" --tag=config
+</code></pre>
+
+<p>Также можно опубликовать все ресурсы пакета для ещё более тонкой настройки (или же по отдельным тегам <code>lang</code>, <code>views</code>, 
+<code>view-components</code>):</p>
+
+<pre><code class="language-shell">php artisan vendor:publish --provider="Jampire\MoonshineImpersonate\ImpersonateServiceProvider"
+</code></pre>
+
+<h2 id="usage">Использование</h2>
+
+<h3 id="usage_basic">Базовое использование</h3>
+
+<p>Т.к. данный пакет работает с системой авторизации, то применять его можно на модели <code>User</code>. Для этого создайте
+<strong>MoonShine</strong> <a href="https://moonshine.cutcode.dev/section/resources-index" title="Resource creation" target="_blank">ресурс</a>, использующий модель авторизации <code>User</code> вашего приложения.</p>
+
+<p>Для примера, создадим следующий <strong>MoonShine</strong> ресурс:</p>
+
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\MoonShine\Resources;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+use MoonShine\Fields\Email;
+use MoonShine\Fields\Text;
+use MoonShine\Resources\Resource;
+use MoonShine\Fields\ID;
+use MoonShine\Actions\FiltersAction;
+
+class UserResource extends Resource
+{
+    public static string $model = User::class;
+
+    public static string $title = 'Users';
+
+    public static string $orderType = 'ASC';
+
+    public function fields(): array
+    {
+        return [
+            ID::make()-&gt;sortable(),
+            Text::make('Name', 'name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+
+    public function rules(Model $item): array
+    {
+        return [];
+    }
+
+    public function search(): array
+    {
+        return ['id'];
+    }
+
+    public function filters(): array
+    {
+        return [];
+    }
+
+    public function actions(): array
+    {
+        return [
+            FiltersAction::make(trans('moonshine::ui.filters')),
+        ];
+    }
+
+    public function itemActions(): array
+    {
+        return [];
+    }
+}
+</code></pre>
+
+<p>Для добавления действия подмены пользователя пакет <code>MoonShine Impersonate</code> предоставляет своё <a href="https://moonshine.cutcode.dev/section/resources-item_actions" title="Item action" target="_blank">действие карточки</a> 
+<code>EnterImpersonationItemAction</code>. Для его добавления воспользуйтесь методом <code>itemActions()</code> ресурса <code>UserResource</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\MoonShine\Resources;
+
+use Jampire\MoonshineImpersonate\UI\ItemActions\EnterImpersonationItemAction;
+use MoonShine\Resources\Resource;
+
+class UserResource extends Resource
+{
+    // ...
+
+    public function itemActions(): array
+    {
+        return [
+            EnterImpersonationItemAction::make()-&gt;resolve(),
+        ];
+    }
+}
+</code></pre>
+
+<p>За тонкую настройку этого действия отвечают секция <code>buttons.enter</code> файла конфигурации и секция <code>ui.buttons.enter</code> 
+файлов локализации.</p>
+
+<p>После подключения данного действия ваш ресурс <code>Users</code> может выглядеть следующим образом:</p>
+
+<p><img src="/assets/images/moonshine-impersonate/start_impersonation_button_2.png" alt="Start Impersonation Button" class="mx-auto" /></p>
+
+<p>При нажатии на эту кнопку вы переключитесь на выбранного пользователя:</p>
+
+<p><img src="/assets/images/moonshine-impersonate/impersonation_mode.png" alt="Impersonation Mode" class="mx-auto" /></p>
+
+<p>В заголовке админ-панели появится кнопка 
+<code>Остановить подмену пользователя</code>, которая будет видна на любой странице админ-панели. Таким образом, вы всегда 
+будите помнить, что находитесь в режиме подмены пользователя:</p>
+
+<p><img src="/assets/images/moonshine-impersonate/stop_impersonation_button.png" alt="Stop Impersonation Button" class="mx-auto" /></p>
+
+<p>За отрисовку данной кнопки отвечает опция <code>buttons.stop.enabled</code> файла конфигурации. Эта опция перезапишет содержимое 
+опции <code>header</code> файла конфигурации <code>moonshine</code>. Если это не то, что вам нужно, вы можете отключить отрисовку кнопки 
+в файле <code>.env</code> при помощи переменной окружения <code>MS_IMPERSONATE_STOP_BUTTON_ENABLED</code>:</p>
+
+<pre><code>MS_IMPERSONATE_STOP_BUTTON_ENABLED=false
+</code></pre>
+
+<p>а саму кнопку установить в нужном вам месте при помощи компонента <code>x-impersonate-stop</code>.</p>
+
+<h3 id="usage_middleware">Middleware</h3>
+
+<p>Для своей работы режим подмены пользователя использует <code>ImpersonateMiddleware</code> класс. По-умолчанию он работает с 
+маршрутами (<code>routes</code>) в группе <code>web</code>. Если вы хотите добавить этот <code>middleware</code> к другим маршрутам, воспольуйтесь 
+псевдонимом <code>impersonate</code>. Например, его можно подключить в контроллере:</p>
+
+<pre><code class="language-php">class PostController extends Controller
+{
+    public function __construct()
+    {
+        $this-&gt;middleware('impersonate');
+    }
+}
+</code></pre>
+
+<h3 id="usage_permissions">Разрешения</h3>
+
+<p>По умолчанию, любой администратор может подменять любого пользователя. Если вы желаете более тонкую настройку 
+разрешений (permissions), можно воспользоваться интерфейсами <code>Impersonable</code> и <code>BeImpersonable</code> и реализовать методы 
+<code>canImpersonate()</code> и <code>canBeImpersonated()</code> соответственно.</p>
+
+<p>Например, чтобы контролировать, кто из админстраторов может подменять пользователя, нужно реализовать метод 
+<code>canImpersonate()</code> на моделе администратора <code>MoonshineUser</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Models;
+
+use Jampire\MoonshineImpersonate\Services\Contracts\Impersonable;
+use MoonShine\Models\MoonshineUser as BaseUser;
+use MoonShine\Models\MoonshineUserRole;
+
+class MoonshineUser extends BaseUser implements Impersonable
+{
+    // ...
+
+    public function canImpersonate(): bool
+    {
+        return $this-&gt;moonshine_user_role_id === MoonshineUserRole::DEFAULT_ROLE_ID;
+    }
+}
+</code></pre>
+
+<p>А чтобы контролировать, кого из пользователей можно подменять, нужно реализовать метод <code>canBeImpersonated()</code> 
+на моделе авторизации <code>User</code>:</p>
+
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as BaseUser;
+use Illuminate\Support\Str;
+use Jampire\MoonshineImpersonate\Services\Contracts\BeImpersonable;
+
+class User extends BaseUser implements BeImpersonable
+{
+    // ...
+
+    public function canBeImpersonated(): bool
+    {
+        return !Str::endsWith($this-&gt;email, '@verysecureemail.com');
+    }
+}
+</code></pre>
+
+<h3 id="usage_logs">Запись событий (логирование)</h3>
+
+<p>Если вы желаете, то можете включить запись событий переключения пользователя в журнал <strong>MoonShine</strong> (по-умолчанию 
+отключено). Включение режима записи осуществляется путём добавления трейта <code>HasMoonShineChangeLog</code> к модели авторизации 
+<code>User</code> (согласно <a href="https://moonshine.cutcode.dev/section/resources-form_components?change-moonshine-locale=ru#changelog" title="" target="_blank">документации</a> <strong>MoonShine</strong>):</p>
+
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use MoonShine\Traits\Models\HasMoonShineChangeLog;
+
+class User extends Authenticatable
+{
+    use HasMoonShineChangeLog;
+
+    // ...
+}
+</code></pre>
+
+<p>При старте режима подмены пользователя в журнале (таблица <code>moonshine_change_logs</code>) появится следующая запись:</p>
+
+<pre><code class="language-json">id: 7
+moonshine_user_id: 1 # пользователь, который запустил режим подмены (админ)
+changelogable_type: App\Models\User # модель авторизации пользователя
+changelogable_id: 4 # пользователь, которого подменяют
+states_before: "impersonation_stopped" # статус приложения до начала подмены
+states_after: "impersonation_entered" # статус приложения после начала подмены
+created_at: 2023-05-25 23:25:11
+updated_at: 2023-05-25 23:25:11
+</code></pre>
+
+<p>При окончании режима подмены пользователя в журнале (таблица <code>moonshine_change_logs</code>) появится следующая запись:</p>
+
+<pre><code class="language-json">id: 8
+moonshine_user_id: 1 # пользователь, который остановил режим подмены (админ)
+changelogable_type: App\Models\User # модель авторизации пользователя
+changelogable_id: 4 # пользователь, которого подменяли
+states_before: "impersonation_entered" # статус приложения до остановки подмены
+states_after: "impersonation_stopped" # статус приложения после остановки подмены
+created_at: 2023-05-25 23:25:37
+updated_at: 2023-05-25 23:25:37
+</code></pre>
+
+<h3 id="usage_events">События</h3>
+
+<p>После старта и отмены режима подмены пользователя отправляются события <code>ImpersonationEntered</code> и <code>ImpersonationStopped</code> 
+соответственно. Оба эти события обладают следующими открытыми свойствами:</p>
+
+<ul>
+<li><code>Authenticatable $impersonator</code> - пользователь, запустивший/остановивший режим подмены (админ);</li>
+<li><code>Authenticatable $impersonated</code> - пользователь, которого подменяют.</li>
+</ul>
+
+<h2 id="links">Ссылки</h2>
+
+<ul>
+<li><a href="https://github.com/Jampire/moonshine-impersonate" title="" target="_blank">Github</a></li>
+<li><a href="https://github.com/Jampire/moonshine-impersonate/blob/master/CONTRIBUTING.md" title="" target="_blank">Contribution Guide</a></li>
+<li><a href="https://moonshine.cutcode.dev/" title="" target="_blank">MoonShine</a></li>
+</ul>
+
+<h2 id="additional_resources">Дополнительные ресурсы</h2>
+
+<p>Функционал подмены пользователя реализуют некоторые админ-панели. Например:</p>
+
+<ul>
+<li><a href="https://nova.laravel.com/docs/4.0/customization/impersonation.html" title="" target="_blank">Laravel Nova impersonation mode</a></li>
+<li><a href="https://orchid.software/en/docs/access/#user-impersonation" title="" target="_blank">Laravel Orchid impersonation mode</a></li>
+</ul>
+</div>
+            </main>
+        
+        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            <ul class="flex flex-col justify-center list-none">
+                <li class="md:mr-2">
+                    &copy; 2019 - 2024 <a href="https://dzianiskotau.com" title="Dzianis Kotau Tech Blog">Dzianis Kotau Tech Blog</a>
+                </li>
+                <li>
+                    <a href="https://github.com/Jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-github" aria-label="GitHub"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-linkedin" aria-label="LinkedIn"></i>
+    </a>
+    <a href="https://www.facebook.com/dzianis.kotau.1984" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-facebook" aria-label="Facebook"></i>
+    </a>
+    <a href="https://t.me/JampireBlr" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-telegram" aria-label="Telegram"></i>
+    </a>
+    <a href="https://twitter.com/Jampire2" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-twitter" aria-label="Twitter"></i>
+    </a>
+    <a href="mailto:me@dzianiskotau.com?subject=Blog-Feedback" target="_top" rel="external"
+       class=" text-2xl md:text-base">
+        <i class="fa-solid fa-envelope" aria-label="Mail Me"></i>
+    </a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=1573cc69a45457bd3c87a651aeb83551"></script>
+
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>

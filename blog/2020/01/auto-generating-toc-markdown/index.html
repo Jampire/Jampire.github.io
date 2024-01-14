@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="canonical" href="https://dzianiskotau.com/blog/2020/01/auto-generating-toc-markdown">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="author" content="Dzianis Kotau" />
+        <meta name="description" content="Auto Generating Table of Contents in Markdown">
+                    <meta name="keywords" content="TOC,Table of Contents,Markdown,Markdown Extra,auto generating,Sculpin,JetBrains,PhpStorm,php" />
+        
+        <!-- Google / Search Engine Tags -->
+        <meta itemprop="name" content="Auto Generating Table of Contents in Markdown" />
+        <meta itemprop="description" content="Most popular PHP Markdown parsers like Markdown Extra (is used by Sculpin) or Parsedown Extra (is used by Jigsaw) can&#039;t generated Table of Contents. Despite this, Sculpin can generate TOC. I became interested in it and researched how Sculpin does this." />
+                    <meta itemprop="image" content="https://dzianiskotau.com/assets/images/auto_generating_toc_markdown/toc0.png" />
+        
+        <!-- Facebook Meta Tags -->
+        <meta property="og:site_name" content="Dzianis Kotau Tech Blog" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Auto Generating Table of Contents in Markdown" />
+        <meta property="og:description" content="Most popular PHP Markdown parsers like Markdown Extra (is used by Sculpin) or Parsedown Extra (is used by Jigsaw) can&#039;t generated Table of Contents. Despite this, Sculpin can generate TOC. I became interested in it and researched how Sculpin does this." />
+        <meta property="og:url" content="https://dzianiskotau.com/blog/2020/01/auto-generating-toc-markdown" />
+        <meta property="og:locale" content="en_US" />
+                    <meta property="og:image" content="https://dzianiskotau.com/assets/images/auto_generating_toc_markdown/toc0.png" />
+                        
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Auto Generating Table of Contents in Markdown" />
+        <meta name="twitter:description" content="Most popular PHP Markdown parsers like Markdown Extra (is used by Sculpin) or Parsedown Extra (is used by Jigsaw) can&#039;t generated Table of Contents. Despite this, Sculpin can generate TOC. I became interested in it and researched how Sculpin does this." />
+        <meta name="twitter:site" content="@Jampire2" />
+        <meta name="twitter:creator" content="@Jampire2" />
+        <meta name="twitter:url" content="https://dzianiskotau.com/blog/2020/01/auto-generating-toc-markdown" />
+                    <meta name="twitter:image" content="https://dzianiskotau.com/assets/images/auto_generating_toc_markdown/toc0.png" />
+        
+        <title>Auto Generating Table of Contents in Markdown | Dzianis Kotau Tech Blog</title>
+
+        <link rel="home" href="https://dzianiskotau.com">
+        <link rel="icon" href="/favicon.ico">
+        <link href="/blog/feed.atom" type="application/atom+xml" rel="alternate" title="Dzianis Kotau Tech Blog Atom Feed">
+
+                    <!-- Insert analytics code here -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/build/css/main.css?id=0a9d6a994146e5563b6d7641d1ab9b58">
+    </head>
+
+    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
+        <header class="flex items-center shadow bg-white border-b h-24 py-4" role="banner">
+            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+                <div class="flex items-center">
+                    <a href="/" title="Dzianis Kotau Tech Blog" class="inline-flex items-center">
+                        <h1 class="text-lg md:text-2xl text-blue-800 font-semibold hover:text-blue-600 my-0">Dzianis Kotau Tech Blog</h1>
+                    </a>
+                </div>
+
+                <div id="vue-search" class="flex flex-1 justify-end items-center">
+                    <search></search>
+
+                    <nav class="hidden lg:flex items-center justify-end text-lg">
+    <a title="Dzianis Kotau Tech Blog Blog" href="/blog"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        Blog
+    </a>
+
+    <a title="My Portfolio" href="/portfolio"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        My Portfolio
+    </a>
+
+    <a title="MoonShine Impersonate" href="/projects/moonshine-impersonate/v2/docs/ru"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        MoonShine Impersonate
+    </a>
+
+    <a title="Dzianis Kotau Tech Blog About" href="/about"
+        class="ml-6 text-gray-700 hover:text-blue-600 ">
+        About
+    </a>
+</nav>
+
+                    <button class="flex justify-center items-center bg-blue-500 border border-blue-500 h-10 px-5 rounded-full lg:hidden focus:outline-none"
+    onclick="navMenu.toggle()"
+>
+    <svg id="js-nav-menu-show" xmlns="http://www.w3.org/2000/svg"
+        class="fill-current text-white h-9 w-4" viewBox="0 0 32 32"
+    >
+        <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+    </svg>
+
+    <svg id="js-nav-menu-hide" xmlns="http://www.w3.org/2000/svg"
+        class="hidden fill-current text-white h-9 w-4" viewBox="0 0 36 30"
+    >
+        <polygon points="32.8,4.4 28.6,0.2 18,10.8 7.4,0.2 3.2,4.4 13.8,15 3.2,25.6 7.4,29.8 18,19.2 28.6,29.8 32.8,25.6 22.2,15 "/>
+    </svg>
+</button>
+
+                </div>
+            </div>
+        </header>
+
+        <nav id="js-nav-menu" class="w-auto px-2 pt-6 pb-2 bg-gray-200 shadow hidden lg:hidden">
+    <ul class="my-0">
+        <li class="pl-4">
+            <a
+                title="Dzianis Kotau Tech Blog Blog"
+                href="/blog"
+                class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >Blog</a>
+        </li>
+        <li class="pl-4">
+            <a
+                    title="My Portfolio"
+                    href="/portfolio"
+                    class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >My Portfolio</a>
+        </li>
+        <li class="pl-4">
+            <a
+                    title="MoonShine Impersonate"
+                    href="/projects/moonshine-impersonate/v2/docs/ru"
+                    class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >MoonShine Impersonate</a>
+        </li>
+        <li class="pl-4">
+            <a
+                title="Dzianis Kotau Tech Blog About"
+                href="/about"
+                class="block mt-0 mb-4 text-sm no-underline text-gray-800 hover:text-blue-500"
+            >About</a>
+        </li>
+    </ul>
+</nav>
+
+                    <main
+                    role="main"
+                    class="flex-auto w-full container max-w-7xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-6"
+            >
+                <div class="md:col-span-1 lg:col-span-2 md:order-last lg:order-last"><div class="flex justify-center grid grid-cols-1 gap-y-4">
+    <div class="rounded-lg shadow-lg bg-white max-w-xs">
+        <a href="#!">
+            <img class="rounded-t-lg" src="/assets/images/about/me.jpg" alt="Dzianis Kotau"/>
+        </a>
+        <div class="pl-4 pt-6 pr-4">
+            <h5 class="text-gray-900 text-xl font-bold mb-2">About Me</h5>
+            <p class="text-gray-700 text-base mb-4">
+                Мy name is <span class="font-semibold">Dzianis Kotau</span>. I'm Solutions Architect and
+                <a href="https://www.zend-zce.com/en/yellow-pages/ZEND017455" target="_blank" rel="external">Zend Certified PHP Engineer</a>.
+                I'm PHP evangelist and loved in it.
+            </p>
+        </div>
+    </div>
+
+    <div class="block rounded-lg shadow-lg bg-white max-w-xs">
+        <p class="text-gray-700 text-base mb-4 text-center">
+            <a href="https://github.com/Jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-github" aria-label="GitHub"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-linkedin" aria-label="LinkedIn"></i>
+    </a>
+    <a href="https://www.facebook.com/dzianis.kotau.1984" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-facebook" aria-label="Facebook"></i>
+    </a>
+    <a href="https://t.me/JampireBlr" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-telegram" aria-label="Telegram"></i>
+    </a>
+    <a href="https://twitter.com/Jampire2" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-twitter" aria-label="Twitter"></i>
+    </a>
+    <a href="mailto:me@dzianiskotau.com?subject=Blog-Feedback" target="_top" rel="external"
+       class=" text-2xl md:text-base">
+        <i class="fa-solid fa-envelope" aria-label="Mail Me"></i>
+    </a>
+        </p>
+    </div>
+</div>
+</div>
+                <div class="md:col-span-2 lg:col-span-5">    
+    <h1 class="leading-none mb-2">Auto Generating Table of Contents in Markdown</h1>
+
+    <p class="text-gray-700 text-xl md:mt-0">Dzianis Kotau  •  January 26, 2020</p>
+
+                        <a
+                href="/blog/categories/php"
+                title="View posts in php"
+                class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide text-gray-800 uppercase text-xs font-semibold rounded mr-4 px-3 pt-px"
+            >php</a>
+            
+    <div class="border-b border-blue-200 mb-10 pb-4">
+        <p>Most popular PHP Markdown parsers like <a href="https://github.com/michelf/php-markdown" title="Markdown Extra" target="_blank">Markdown Extra</a> (is used by <a href="https://sculpin.io/" title="Sculpin" target="_blank">Sculpin</a>) or <a href="https://github.com/erusev/parsedown-extra" title="Parsedown Extra" target="_blank">Parsedown Extra</a> 
+(is used by <a href="https://jigsaw.tighten.co/" title="Jigsaw" target="_blank">Jigsaw</a>) can't generated Table of Contents. Despite this, Sculpin can generate <abbr title="Table of Contents">TOC</abbr>.
+I became interested in it and researched how Sculpin does this.</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#researching">Researching</a></li>
+<li><a href="#auto-generating">Auto generating</a></li>
+<li><a href="#standalone-library">Standalone library</a></li>
+<li><a href="#additional-notes">Additional notes</a></li>
+</ul>
+
+<h2 id="researching">Researching</h2>
+
+<p>While reading Sculpin's core code I found such class:</p>
+
+<pre><code class="language-php">&lt;?php
+
+// vendor/sculpin/sculpin/src/Sculpin/Bundle/MarkdownBundle/MarkdownConverter.php
+
+// ...
+
+final class MarkdownConverter implements ConverterInterface, EventSubscriberInterface
+{
+    public function __construct(ParserInterface $markdown, array $extensions = [])
+    {
+        $this-&gt;markdown = $markdown;
+        if ($this-&gt;markdown instanceof Markdown) {
+            $this-&gt;markdown-&gt;header_id_func = [$this, 'generateHeaderId'];
+        }
+        $this-&gt;extensions = $extensions;
+    }
+
+    // ...
+
+    /**
+     * This method is called to generate an id="" attribute for a header.
+     *
+     * @internal
+     *
+     * @param string $headerText raw markdown input for the header name
+     */
+    public function generateHeaderId(string $headerText): string
+    {
+
+        // $headerText is completely raw markdown input. We need to strip it
+        // from all markup, because we are only interested in the actual 'text'
+        // part of it.
+
+        // Step 1: Remove html tags.
+        $result = strip_tags($headerText);
+
+        // Step 2: Remove all markdown links. To do this, we simply remove
+        // everything between ( and ) if the ( occurs right after a ].
+        $result = preg_replace('%
+            (?&lt;= \\]) # Look behind to find ]
+            (
+                \\(     # match (
+                [^\\)]* # match everything except )
+                \\)     # match )
+            )
+
+            %x', '', $result);
+
+        // Step 3: Convert spaces to dashes, and remove unwanted special
+        // characters.
+        $map = [
+            ' ' =&gt; '-',
+            '(' =&gt; '',
+            ')' =&gt; '',
+            '[' =&gt; '',
+            ']' =&gt; '',
+        ];
+        return rawurlencode(strtolower(
+            strtr($result, $map)
+        ));
+    }
+}
+</code></pre>
+
+<p>Look at his line of code</p>
+
+<pre><code class="language-php">$this-&gt;markdown-&gt;header_id_func = [$this, 'generateHeaderId'];
+</code></pre>
+
+<p><code>header_id_func</code> is Markdown's callback function to generate header id attribute:</p>
+
+<pre><code class="language-php">&lt;?php
+
+// vendor/michelf/php-markdown/Michelf/Markdown.php
+
+/**
+ * Optional header id="" generation callback function.
+ * @var callable|null
+ */
+public $header_id_func = null;
+
+/**
+ * If a header_id_func property is set, we can use it to automatically
+ * generate an id attribute.
+ *
+ * This method returns a string in the form id="foo", or an empty string
+ * otherwise.
+ * @param  string $headerValue
+ * @return string
+ */
+protected function _generateIdFromHeaderValue($headerValue) {
+    if (!is_callable($this-&gt;header_id_func)) {
+        return "";
+    }
+
+    $idValue = call_user_func($this-&gt;header_id_func, $headerValue);
+    if (!$idValue) {
+        return "";
+    }
+
+    return ' id="' . $this-&gt;encodeAttribute($idValue) . '"';
+}
+</code></pre>
+
+<p>and <code>generateHeaderId()</code> method from Sculpin core does the rest of the job.</p>
+
+<h2 id="auto-generating">Auto generating</h2>
+
+<p><img src="/assets/images/auto_generating_toc_markdown/phpstrom_markdown_plugin.png" alt="Phpstrom Markdown Plugin" class="mx-auto" /></p>
+
+<p>The good news here is that you don't even need to care about manual and unique <code>id</code> generating. <a href="https://www.jetbrains.com/phpstorm/" title="PhpStorm" target="_blank">PhpStorm IDE</a> 
+(that most PHP developers should use) with Markdown (bundled) plugin will help you. PhpStorm uses the same algorithm 
+for <code>id</code> generating that Sculpin's <code>generateHeaderId()</code> method does. All you need to do is to write your Markdown 
+article with headers, create <abbr title="Table of Contents">TOC</abbr> and then use PhpStorm's autocompletion:</p>
+
+<p><img src="/assets/images/auto_generating_toc_markdown/auto_generating.gif" alt="TOC Auto Generating" class="mx-auto" /></p>
+
+<p>By the way, <a href="https://github.github.com/gfm/" title="GFM" target="_blank">GitHub</a> uses the same algorithm too. So, you can use PhpStorm to easily create README.md and 
+other Markdown files.</p>
+
+<h2 id="standalone-library">Standalone library</h2>
+
+<p>I decided to extract Sculpin's solution into standalone library that anyone can use it in their own work. I published 
+sources on <a href="https://github.com/Jampire/toc-markdown-extra" title="TOC Markdown Extra" target="_blank">my GitHub</a>. Please, feel free to use it.</p>
+
+<h2 id="additional-notes">Additional notes</h2>
+
+<p><a href="https://github.com/michelf/php-markdown/pull/26#issuecomment-5253043" title="" target="_blank">The point of view</a> of PHP Markdown's author is that <abbr title="Table of Contents">TOC</abbr> generating is <strong>not</strong> the work of his parser. So, it will 
+be never included in his library.</p>
+    </div>
+
+            <div class="mb-10 pb-4">
+                            <a
+                    href="/blog/tags/toc"
+                    title="View posts in TOC"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >TOC</a>
+                            <a
+                    href="/blog/tags/table-of-contents"
+                    title="View posts in Table of Contents"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >Table of Contents</a>
+                            <a
+                    href="/blog/tags/markdown"
+                    title="View posts in Markdown"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >Markdown</a>
+                            <a
+                    href="/blog/tags/markdown-extra"
+                    title="View posts in Markdown Extra"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >Markdown Extra</a>
+                            <a
+                    href="/blog/tags/auto-generating"
+                    title="View posts in auto generating"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >auto generating</a>
+                            <a
+                    href="/blog/tags/sculpin"
+                    title="View posts in Sculpin"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >Sculpin</a>
+                            <a
+                    href="/blog/tags/jetbrains"
+                    title="View posts in JetBrains"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >JetBrains</a>
+                            <a
+                    href="/blog/tags/phpstorm"
+                    title="View posts in PhpStorm"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >PhpStorm</a>
+                            <a
+                    href="/blog/tags/php"
+                    title="View posts in php"
+                    class="inline-block bg-gray-300 hover:bg-blue-200 leading-loose tracking-wide
+                        text-gray-800 uppercase text-xs font-semibold rounded mr-1 px-1 pt-px"
+                >php</a>
+                    </div>
+    
+    <nav class="flex justify-between text-sm md:text-base">
+        <div>
+                            <a href="https://dzianiskotau.com/blog/2019/12/ibm-app-id-provider-oauth2-client" title="Older Post: IBM App ID Provider for OAuth 2.0 Client">
+                    &LeftArrow; IBM App ID Provider for OAuth 2.0 Client
+                </a>
+                    </div>
+
+        <div>
+                            <a href="https://dzianiskotau.com/blog/2022/07/laravel-pint-format" title="Newer Post: Laravel Pint Format Option">
+                    Laravel Pint Format Option &RightArrow;
+                </a>
+                    </div>
+    </nav>
+
+    <script src="https://giscus.app/client.js"
+        data-repo="Jampire/blog-discussions"
+        data-repo-id="R_kgDOHvt3Dw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOHvt3D84CQifA"
+        data-mapping="title"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+            </main>
+        
+        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
+            <ul class="flex flex-col justify-center list-none">
+                <li class="md:mr-2">
+                    &copy; 2019 - 2024 <a href="https://dzianiskotau.com" title="Dzianis Kotau Tech Blog">Dzianis Kotau Tech Blog</a>
+                </li>
+                <li>
+                    <a href="https://github.com/Jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-github" aria-label="GitHub"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/jampire" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-linkedin" aria-label="LinkedIn"></i>
+    </a>
+    <a href="https://www.facebook.com/dzianis.kotau.1984" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-facebook" aria-label="Facebook"></i>
+    </a>
+    <a href="https://t.me/JampireBlr" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-telegram" aria-label="Telegram"></i>
+    </a>
+    <a href="https://twitter.com/Jampire2" target="_blank" rel="external"
+       class=" mr-3  text-2xl md:text-base">
+        <i class="fa-brands fa-twitter" aria-label="Twitter"></i>
+    </a>
+    <a href="mailto:me@dzianiskotau.com?subject=Blog-Feedback" target="_top" rel="external"
+       class=" text-2xl md:text-base">
+        <i class="fa-solid fa-envelope" aria-label="Mail Me"></i>
+    </a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="/assets/build/js/main.js?id=1573cc69a45457bd3c87a651aeb83551"></script>
+
+        <script>
+    const navMenu = {
+        toggle() {
+            const menu = document.getElementById('js-nav-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('lg:block');
+            document.getElementById('js-nav-menu-hide').classList.toggle('hidden');
+            document.getElementById('js-nav-menu-show').classList.toggle('hidden');
+        },
+    }
+</script>
+    </body>
+</html>
